@@ -1,0 +1,93 @@
+#include<iostream>
+#include <cstdlib>
+#include <string>
+#include <stdlib.h>
+#include <time.h>
+#include <cstring>
+using namespace std;
+
+class stringLength{
+	int length;
+	string* values;
+
+	public:
+    stringLength() {
+		length = rand() % 8 + 2;
+		cout << "LENGTH=" << length << endl;
+	}
+
+	stringLength operator +(const stringLength &str2 )
+	{ stringLength str;
+		str.length =this->length + str2.length;
+		str.values=new string[str.length+1];
+
+		strcpy(str.values,this->values);
+		strcat(str.values,str2.values);
+
+		return str;
+
+	}
+	string operator += ( stringLength& other){
+        stringLength str;
+        str.length +=this->length;
+        str.length+=str2.length;
+
+        for(int i;i<20,i++){
+            for(int j;j<20,j++){
+                if()
+            }
+        }
+    }
+
+void setLength(int length){
+			this->length=length;
+		}
+
+void setValues(string* values){
+	this->values=values;
+}
+
+void printString(){
+		for(int i=0;i<this->length;i++){
+
+			cout<<this->values[i]<<" ";
+
+		}
+		cout<<endl;
+	}
+void printIndex(int index){
+    if(this->length<=index){
+        cout<<this->values[index-1]<<endl;
+    }
+}
+};
+
+int main(){
+    srand (time(NULL));
+    string values[3]={"Olea","Cristina", "Anna"};
+    string values1[8]={"Olea","Dima","Tanea","Sasha","Jenea","Anna","Cristina","Vova"};
+
+	stringLength str1;
+	stringLength str2;
+	stringLength str3;
+	stringLength str4;
+	str1.setLength(3);
+	str1.setValues(values);
+	str1.printString();
+	str1.printIndex(3);
+
+	str2.setValues(values1);
+	str2.printString();
+
+
+	str3=str1+str2;
+	 str3.printString();
+	 str4=str1;
+	 str4+=str2;
+	 str4.printString();
+
+
+
+
+
+}
